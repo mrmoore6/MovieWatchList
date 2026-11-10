@@ -1,0 +1,253 @@
+@import url("https://fonts.googleapis.com/css2?family=Momo+Signature&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Anton&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  padding: 70px 20px;
+  background:
+    radial-gradient(ellipse at top, #24243c 0%, transparent 60%), #0d0e16;
+  color: #f5f5fa;
+  font-family: "Anton", sans-serif;
+  font-weight: 400;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+header {
+  font-family: "Momo Signature", cursive;
+  font-weight: 400;
+  text-align: center;
+}
+
+header h1 {
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  font-weight: 400;
+  margin-bottom: 36px;
+}
+
+.appContainer {
+  width: min(100%, 580px);
+  padding: 24px;
+  background: #191a27;
+  border: 1px solid #303143;
+  border-radius: 22px;
+  box-shadow: 0 20px 60px #00000040;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 15px 16px;
+  margin-bottom: 14px;
+  border: 1px solid #393a50;
+  border-radius: 12px;
+  outline: none;
+  background: #10111c;
+  color: white;
+  font:
+    16px system-ui,
+    sans-serif;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+input[type="text"]::placeholder {
+  color: #85869f;
+}
+
+input[type="text"]:focus {
+  border-color: #ff646e;
+  box-shadow: 0 0 0 3px #ff646e20;
+}
+
+button {
+  padding: 11px 18px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  background: #ff5664;
+  color: white;
+  font:
+    600 14px system-ui,
+    sans-serif;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  background: #ff7180;
+  box-shadow: 0 6px 18px #ff566425;
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+button:focus-visible {
+  outline: 2px solid #ff9ba4;
+  outline-offset: 4px;
+}
+
+#clearBtn {
+  margin-left: 8px;
+  background: #292a3c;
+  border-color: #3b3c52;
+  color: #d7d7e5;
+}
+
+#clearBtn:hover {
+  background: #38394e;
+  box-shadow: none;
+}
+
+#movieList,
+#watchedMoviesList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  list-style: none;
+}
+
+#movieList {
+  margin-top: 22px;
+}
+
+#movieList:empty {
+  margin-top: 0;
+}
+
+#movieList li,
+#watchedMoviesList li {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  padding: 16px;
+  border: 1px solid #35364b;
+  border-radius: 14px;
+  background: #222334;
+  font-size: 18px;
+  letter-spacing: 0.3px;
+  overflow-wrap: anywhere;
+}
+
+.movieTitle {
+  flex: 1;
+  min-width: 0;
+  text-align: left;
+}
+
+#movieList label {
+  margin-left: auto;
+  color: #a9aac2;
+  font:
+    13px system-ui,
+    sans-serif;
+  white-space: nowrap;
+}
+
+#movieList label.watched,
+.watched {
+  color: #85dfb5;
+  font-style: oblique;
+}
+
+input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  accent-color: #85dfb5;
+  cursor: pointer;
+}
+
+#movieList button,
+.deleteRenederedBtn {
+  flex-shrink: 0;
+  width: auto;
+  min-width: 0;
+  padding: 8px 12px;
+  background: #ff566414;
+  border: 1px solid #ff566435;
+  color: #ff8e98;
+  font-size: 12px;
+  box-shadow: none;
+}
+
+#movieList button:hover,
+.deleteRenederedBtn:hover {
+  background: #ff56642b;
+  box-shadow: none;
+}
+
+.watchedMoviesContainer {
+  width: min(100%, 580px);
+  margin-top: 36px;
+  padding: 26px 24px;
+  background: #191a27;
+  border: 1px solid #303143;
+  border-radius: 22px;
+}
+
+.watchedMoviesContainer header {
+  margin-bottom: 22px;
+}
+
+.watchedMoviesContainer h2 {
+  font-family: "Momo Signature", cursive;
+  font-size: clamp(1.7rem, 5vw, 2.2rem);
+  font-weight: 400;
+  color: #f5f5fa;
+}
+
+#watchedMoviesList li {
+  justify-content: space-between;
+  background: #85dfb508;
+  border-color: #85dfb525;
+}
+
+.deleteRenederedBtn {
+  margin-left: auto;
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 40px 14px;
+  }
+
+  .appContainer,
+  .watchedMoviesContainer {
+    padding: 20px 16px;
+  }
+
+  #movieList li {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  #movieList label {
+    margin-left: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+  }
+
+  button:hover {
+    transform: none;
+  }
+}
